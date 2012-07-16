@@ -3,11 +3,8 @@ project-set-up
 
 some scripts to set-up out various apps
 
-gems used:
+gem install bundler 
+bundle install
+will be needed
 
-pivotal-tracker
-httparty
-github_api
-
-
-usage:  $ruby project.rb "project name" "project description"
+usage:  $rake informatics:setup_all   
