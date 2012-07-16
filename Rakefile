@@ -22,14 +22,20 @@ class Toggl
 end
 
 
-
+desc "set of tasks to create all the tools we need for running a project"
 namespace :informatics do
   
   desc "setup github, PT and toggl in one go"
-  task :setup_all => [:setup_toggl, :setup_PT, :setup_github] do
+  task :setup_all, :name, :description do 
     #grab vars from commandline
-    @@proj_name = ARGV[0]
-    @@proj_description = ARGV[1]
+    
+    @@proj_name = ENV["name"]
+    @@proj_description = ENV["description"]
+    
+    Rake::Task['informatics:setup_toggl'].invoke
+    Rake::Task['informatics:setup_PT'].invoke
+    Rake::Task['informatics:setup_github'].invoke
+    
     puts 'completes all setup'
   end
 
@@ -53,7 +59,7 @@ namespace :informatics do
 
 
     responser = Toggl.post('/api/v6/projects.json', options)
-    puts "#{proj_name} toggl project done  - BOOM"
+    puts "#{@@proj_name} toggl project done  - BOOM"
   end
 
   desc "setup pivotal tracker"
@@ -68,7 +74,7 @@ namespace :informatics do
     # create new proj in PT
     new_proj.create()
 
-    puts "#{proj_name} Pivotal T completed - BOOOOOOOM"
+    puts "#{@@proj_name} Pivotal T completed - BOOOOOOOM"
   end
 
   desc "setup github repo"
@@ -83,7 +89,7 @@ namespace :informatics do
     github = Github.new :basic_auth => "#{@gh_un}:#{@gh_pw}", :org => @gh_org
     github.repos.create :name => @@proj_name, :description => @@proj_description, :org => @gh_org
 
-    puts "#{proj_name} github repo created - BOOOOOOOOOOOOOOOOOOM"
+    puts "#{@@proj_name} github repo created - BOOOOOOOOOOOOOOOOOOM"
   end
  
 end
