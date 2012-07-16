@@ -8,3 +8,5 @@ bundle install
 will be needed
 
 usage:  $rake informatics:setup_all   
+
+next-up:  create project docs ready for planning, wireframing etc
