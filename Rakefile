@@ -109,12 +109,12 @@ end
       db_folder = config["config"]["dropbox_folder"]
       
       base_dir = "#{db_folder}/planning/#{@@proj_name}"
-      
     
       mkdir base_dir
       mkdir "#{base_dir}/docs" unless File.exists?("#{base_dir}/docs")
       mkdir "#{base_dir}/docs/specs" unless File.exists?("#{base_dir}/docs/specs")
-      mkdir "#{base_dir}/docs//wireframes" unless File.exists?("#{base_dir}/docs//wireframes")
+      mkdir "#{base_dir}/docs/wireframes" unless File.exists?("#{base_dir}/docs//wireframes")
+      mkdir "#{base_dir}/docs/designs" unless File.exists?("#{base_dir}/docs/designs")
       cp "#{db_folder}/planning/Project_checklist.taskpaper", "#{base_dir}/checklist.taskpaper"
       
      
