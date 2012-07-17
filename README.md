@@ -9,6 +9,8 @@ bundle install
 
 rename example_config.yaml to config.yaml and fill in the tokens and password
 
+
+
 to set up toggle, github and pivotal tracker:
 
 `$rake -v informatics:setup_all name=myproject description="geoffs app"`
