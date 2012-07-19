@@ -13,7 +13,7 @@ rename example_config.yaml to config.yaml and fill in the tokens and password
 
 to set up toggle, github and pivotal tracker:
 
-`$rake -v informatics:setup_all name=myproject description="geoffs app"`
+**`$rake -v informatics:setup_all name=myproject([project code]) description="geoffs app"`**
 
 to set up the project docs and directory for the planning phase:
 
