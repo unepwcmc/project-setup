@@ -31,9 +31,9 @@ end
       @@proj_name = ENV["name"]
       @@proj_description = ENV["description"]
     
-      Rake::Task['informatics:setup_toggl'].invoke
-      Rake::Task['informatics:setup_PT'].invoke
-      Rake::Task['informatics:setup_github'].invoke
+      Rake::Task['live:setup_toggl'].invoke
+      Rake::Task['live:setup_PT'].invoke
+      Rake::Task['live:setup_github'].invoke
     
       puts 'completes all setup'
     end
@@ -115,6 +115,7 @@ end
       mkdir "#{base_dir}/docs/specs" unless File.exists?("#{base_dir}/docs/specs")
       mkdir "#{base_dir}/docs/wireframes" unless File.exists?("#{base_dir}/docs//wireframes")
       mkdir "#{base_dir}/docs/designs" unless File.exists?("#{base_dir}/docs/designs")
+      mkdir "#{base_dir}/docs/contracts" unless File.exists?("#{base_dir}/docs/contracts")
       cp "#{db_folder}/planning/Project_checklist.taskpaper", "#{base_dir}/checklist.taskpaper"
       
      
