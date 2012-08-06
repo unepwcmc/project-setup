@@ -7,7 +7,7 @@ git clone git://github.com/unepwcmc/project-setup.git
 gem install bundler 
 bundle install
 
-rename example_config.yaml to config.yaml and fill in the tokens and password
+make a copy of example_config.yaml as config.yaml and fill in the tokens and password
 
 
 
